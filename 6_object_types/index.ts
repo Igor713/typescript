@@ -94,3 +94,61 @@ const hulk: SuperHuman = {
 }
 
 console.log(hulk)
+
+// 6 - Intersection types
+interface Character {
+  name: string
+}
+
+interface Gun {
+  type: string
+  caliber: number
+}
+
+type HumanWithGun = Character & Gun
+
+const arnold: HumanWithGun = {
+  name: "Arnold",
+  type: "Shotgun",
+  caliber: 12
+}
+
+console.log(arnold)
+
+// 7 - Readonly array
+let myArray: ReadonlyArray<string> = ["Abacaxi", "Banana", "Morango"]
+
+// myArray[3] = "Uva"
+
+console.log(myArray)
+
+myArray.forEach((item) => {
+  console.log(`Fruta: ${item}`)
+})
+
+myArray.map((item) => {
+  console.log(`Fruta: ${item}`)
+})
+
+// 8 - Tuplas
+type fiveNumbers = [number, number, number, number, number]
+
+const myNumberArray: fiveNumbers = [2, 4, 6, 8, 10]
+// const myNumberArray2: fiveNumbers = [2, 4, 6, 8, 10, 12]
+// const mixedArray: fiveNumbers = [2, true, "String", 8, 10]
+
+console.log(myNumberArray)
+
+type nameAndAge = [string, number]
+
+const igorM: nameAndAge = ["Igor", 26]
+
+console.log(igorM)
+
+// 9 - Tuplas com readonly
+function showNumber(numbers: readonly [number, number]) {
+  console.log(numbers[0])
+  console.log(numbers[1])
+}
+
+showNumber([1, 2])
