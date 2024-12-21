@@ -27,3 +27,33 @@ var server = {
     ram: '16gb'
 };
 console.log(getSomeKey(server, 'ram'));
+function showPersonName(obj, name) {
+    return "".concat(obj[name]);
+}
+var igor = {
+    name: 'Igor',
+    age: 26,
+    hasDriveLicense: true
+};
+console.log(showPersonName(igor, 'name'));
+// 6 - Typeof type operator
+var userName = 'Igor';
+var userName1 = 'Juca';
+var userName2 = 'Francisco';
+var volvoFh540 = {
+    km: 10000,
+    kg: 15000,
+    description: 'Caminhão de carga'
+};
+function showKm(km) {
+    console.log("O ve\u00EDculo tem o km de: ".concat(km));
+}
+showKm(volvoFh540.km);
+var fordFocus = {
+    km: 1000,
+    kg: 1050
+};
+showKm(fordFocus.km);
+var result = 5;
+var testing = 'some text';
+// const testing: CustomType = 'some text 2'

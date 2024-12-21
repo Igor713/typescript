@@ -75,3 +75,50 @@ const userName1: typeof userName = 'Juca'
 type x = typeof userName
 
 const userName2: x = 'Francisco'
+
+// 7 - Indexed access types
+type Truck = { km: number, kg: number, description: string }
+
+type km = Truck['km']
+
+const volvoFh540: Truck = {
+  km: 10000,
+  kg: 15000,
+  description: 'Caminhão de carga'
+}
+
+function showKm(km: km) {
+  console.log(`O veículo tem o km de: ${km}`)
+}
+
+showKm(volvoFh540.km)
+
+const fordFocus = {
+  km: 1000,
+  kg: 1050
+}
+
+showKm(fordFocus.km)
+
+// 8 - Conditional types
+interface A { }
+
+interface B extends A { }
+
+interface Teste {
+  showName(): string
+}
+
+type mytype = B extends A ? number : string
+
+const result: mytype = 5
+
+type myTypeB = Teste extends { showNumber(): number } ? string : boolean
+
+// 9 - Template literals type
+type testA = 'text'
+
+type CustomType = `some ${testA}`
+
+const testing: CustomType = 'some text'
+// const testing: CustomType = 'some text 2'
